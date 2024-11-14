@@ -1,104 +1,161 @@
+/* Basic Reset and Body Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', Arial, sans-serif;
+}
+
 body {
-  background-color: #007FFF;
-}
-
-#main-container {
-  margin: 0 auto;
+  background: linear-gradient(135deg, #007FFF, #001f5f);
+  background-size: 400% 400%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
   text-align: center;
+  animation: gradientAnimation 15s ease infinite;
 }
 
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Main Container */
+#main-container {
+  max-width: 600px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 1.5s ease-in;
+}
+
+/* Profile Image */
 #profile-pic {
   width: 150px;
   height: 150px;
   margin: 15px auto;
   border-radius: 50%;
-  border: 1px solid white;
+  border: 3px solid #fff;
+  transition: transform 0.3s ease;
 }
 
-.text {
-  color: white;
-  margin: 0;
+#profile-pic:hover {
+  transform: scale(1.1);
 }
 
+/* Header Text Styling */
 #text-name {
-  font: bold 25px Arial, sans-serif;
-  margin-bottom: 10px;
+  font: bold 26px Arial, sans-serif;
 }
 
 #text-title {
-  font: 18px Arial, sans-serif;
-  margin-bottom: 5px;
-}
-
-#text-description {
-  font: italic 16px Arial, sans-serif;
+  font-size: 20px;
   font-weight: 600;
 }
 
-#text-address {
-  margin: 10px 0 0;
-  font: 18px Arial, sans-serif;
+#text-description {
+  font-size: 17px;
+  font-weight: 500;
+  font-style: italic;
+  opacity: 0.9;
 }
 
-ul {
-  margin: 10;
-  padding: 0;
-  text-align: center;
-  list-style-position: inside;
-   font-size: 18px;
+/* Address Section */
+#address-container {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
 }
 
-li {
-  color: yellow;
-  direction:rtl;
-}
-
+/* Social Links */
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px 30px;
-  max-width: 300px;
-  margin: 0 auto;
-  justify-content: center;
-}
-
-.image-button {
-  display: inline-block;
-  text-align: center;
+  grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+  gap: 15px;
+  max-width: 320px;
+  margin: 20px auto;
 }
 
 .image-button img {
-  display: block;
   width: 40px;
   height: 40px;
+  transition: transform 0.3s, opacity 0.3s;
 }
 
-.grid-item:hover {
-  opacity: 0.8;
-  cursor: pointer;
-  transform: scale(1.05);
+.image-button:hover img {
+  transform: rotate(10deg) scale(1.1);
+  opacity: 0.85;
 }
 
+/* Call Button */
 .call-button {
   display: inline-block;
-  background-color: green;
-  padding: 5px 50px;
-  border-radius: 15px;
-  margin-top: 10px;
+  background: #4CAF50;
+  padding: 10px 40px;
+  border-radius: 20px;
+  margin-top: 15px;
   color: white;
+  font-size: 16px;
+  font-weight: bold;
+  transition: transform 0.3s, opacity 0.3s;
   text-decoration: none;
-  transition: opacity 0.3s, transform 0.3s;
 }
 
 .call-button:hover {
-  opacity: 0.8;
+  opacity: 0.85;
   transform: scale(1.05);
 }
 
-#copy-rights {
-  font-size: 14px;
-  font-weight: 700;
+/* Scroll to Top Button */
+#scrollTopBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px;
+  background: #007FFF;
   color: white;
-  margin-top: 30px;
-  text-align: center;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  display: none;
+}
+
+/* Dark Theme */
+.dark-theme {
+  background: linear-gradient(135deg, #001f5f, #000);
+  color: #ddd;
+}
+
+.dark-theme #main-container {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+/* Theme Toggle Button */
+#themeToggle {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: #007FFF;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Footer */
+#copy-rights {
+  font-size: 12px;
+  margin-top: 20px;
+  color: #ddd;
+  font-weight: bold;
 }
